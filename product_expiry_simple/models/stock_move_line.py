@@ -15,4 +15,4 @@ class StockMoveLine(models.Model):
         for rec in self.filtered(lambda m: m.exists()):
             if rec.move_id.picking_type_id.use_create_lots:
                 if rec.lot_id:
-                    rec.lot_id.write({'expiry_date': rec.expiry_date})
+                    rec.lot_id.write({'expiry_date': rec.lot_id.expiry_date})
